@@ -11,6 +11,11 @@ provider "unifi" {
   api_url = "https://gateway.infra.home.a-rwx.org"
 }
 
+locals {
+  clients_csv = csvdecode(file("${path.module}/clients.csv"))
+  clients     = { for client in local.clients_csv : client.mac => client }
+}
+
 data "unifi_ap_group" "default" {
 }
 
@@ -70,3 +75,25 @@ resource "unifi_network" "lans" {
 #  ap_group_ids  = [data.unifi_ap_group.default.id]
 #  user_group_id = data.unifi_user_group.default.id
 #}
+
+resource "unifi_user" "clients" {
+  for_each = local.clients
+
+  mac      = each.key
+  name     = "${each.value.network}.${each.value.hostname}"
+  fixed_ip = each.value.ip
+}
+
+resource "unifi_port_profile" "disabled" {
+  name = "Disabled"
+
+  poe_mode = "off"
+  forward  = "disabled"
+}
+
+resource "unifi_port_profile" "network" {
+  for_each = var.lans
+
+  poe_mode              = "auto"
+  native_networkconf_id = unifi_network.lans[each.key].id
+}
