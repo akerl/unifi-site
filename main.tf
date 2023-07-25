@@ -114,5 +114,5 @@ resource "unifi_device" "devices" {
 }
 
 output "site_addresses" {
-  value = { for i, x in local.clients : x.ip => "${x.hostname}.${x.network}.home.a-rwx.org" }
+  value = { for i, x in local.clients : x.ip => "${x.hostname}.${x.network}" }
 }
