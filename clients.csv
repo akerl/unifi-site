@@ -10,6 +10,7 @@ ip,hostname,network,mac
 10.0.1.115,grafana,servers,52:54:51:ba:82:be
 10.0.1.116,teslamate,servers,52:54:99:4f:1f:1c
 10.0.1.117,cultivator,servers,52:54:3c:49:43:96
+10.0.1.118,unpoller,servers,52:54:a3:c2:40:f0
 10.0.1.150,nas,servers,00:11:32:ef:2b:cd
 10.0.2.2,nas,security,00:11:32:ef:2b:ce
 10.0.2.10,cam-front,security,b8:a4:4f:23:1c:8e
