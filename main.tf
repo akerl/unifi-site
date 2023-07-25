@@ -14,6 +14,8 @@ provider "unifi" {
 locals {
   clients_csv = csvdecode(file("${path.module}/clients.csv"))
   clients     = { for client in local.clients_csv : client.mac => client }
+  devices_csv = csvdecode(file("${path.module}/devices.csv"))
+  devices     = { for client in local.devices_csv : client.mac => client }
 }
 
 data "unifi_ap_group" "default" {
@@ -96,4 +98,21 @@ resource "unifi_port_profile" "network" {
 
   poe_mode              = "auto"
   native_networkconf_id = unifi_network.lans[each.key].id
+}
+
+resource "unifi_device" "devices" {
+  for_each = local.devices
+
+  mac  = each.key
+  name = each.value.hostname
+
+  lifecycle {
+    ignore_changes = [
+      port_override,
+    ]
+  }
+}
+
+output "site_addresses" {
+  value = { for i, x in local.clients : x.ip => "${x.hostname}.${x.network}.home.a-rwx.org" }
 }
