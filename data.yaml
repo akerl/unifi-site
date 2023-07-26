@@ -1,0 +1,699 @@
+wans:
+  Shentel:
+    group: WAN
+  Tello:
+    group: WAN2
+lans:
+  Infra:
+    subnet: 10.0.0.0/24
+    vlan_id: 0
+    domain_name: infra.home.a-rwx.org
+    dhcp_start: 10.0.0.150
+    dhcp_stop: 10.0.0.250
+    multicast_dns: false
+  Servers:
+    subnet: 10.0.1.0/24
+    vlan_id: 101
+    domain_name: servers.home.a-rwx.org
+    dhcp_start: 10.0.1.200
+    dhcp_stop: 10.0.1.250
+    multicast_dns: true
+  Security:
+    subnet: 10.0.2.0/24
+    vlan_id: 102
+    domain_name: security.home.a-rwx.org
+    dhcp_start: 10.0.2.200
+    dhcp_stop: 10.0.2.250
+    multicast_dns: false
+  IoT:
+    subnet: 172.16.0.0/22
+    vlan_id: 700
+    domain_name: iot.home.a-rwx.org
+    dhcp_start: 172.16.3.200
+    dhcp_stop: 172.16.3.250
+    multicast_dns: true
+  Gaming:
+    subnet: 172.16.20.0/24
+    vlan_id: 720
+    domain_name: gaming.home.a-rwx.org
+    dhcp_start: 172.16.20.200
+    dhcp_stop: 172.16.20.250
+    multicast_dns: false
+  Standard:
+    subnet: 192.168.1.0/24
+    vlan_id: 900
+    domain_name: standard.home.a-rwx.org
+    dhcp_start: 192.168.1.200
+    dhcp_stop: 192.168.1.250
+    multicast_dns: true
+  Guest:
+    subnet: 192.168.99.0/24
+    vlan_id: 999
+    domain_name: guest.home.a-rwx.org
+    dhcp_start: 192.168.99.200
+    dhcp_stop: 192.168.99.250
+    multicast_dns: false
+wifi:
+  akerl:
+    network_name: Standard
+    is_guest: false
+    band_steering: true
+    uapsd: true
+    fast_roaming_enabled: true
+    pmf_mode: optional
+    wpa3_support: true
+  akerl_guest:
+    network_name: Guest
+    is_guest: false
+    band_steering: false
+    uapsd: false
+    fast_roaming_enabled: true
+    pmf_mode: optional
+    wpa3_support: true
+  akerl_iot:
+    network_name: IoT
+    is_guest: false
+    band_steering: false
+    uapsd: false
+    fast_roaming_enabled: false
+    pmf_mode: disabled
+    wpa3_support: false
+clients:
+  10.0.0.1:
+    hostname: gateway
+    network: Infra
+    mac: 74:ac:b9:e5:b3:9e
+    upstream: core
+    port: 26
+  10.0.0.2:
+    hostname: core
+    network: Infra
+    mac: 24:5a:4c:a2:c3:85
+    upstream: leaf
+    port: 26
+  10.0.0.20:
+    hostname: switch-theatre
+    network: Infra
+    mac: 24:5a:4c:59:85:18
+    upstream: core
+    port: 7
+  10.0.0.21:
+    hostname: switch-family
+    network: Infra
+    mac: 68:d7:9a:69:c2:cb
+    upstream: core
+    port: 8
+  10.0.0.22:
+    hostname: switch-office
+    network: Infra
+    mac: 74:83:c2:0c:4b:80
+    upstream: core
+    port: 9
+  10.0.0.23:
+    hostname: switch-spare-1
+    network: Infra
+    mac: 74:ac:b9:aa:af:9a
+    upstream: core
+    port: 18
+  10.0.0.24:
+    hostname: switch-spare-2
+    network: Infra
+    mac: 68:d7:9a:69:c2:e7
+    upstream: core
+    port: 14
+  10.0.0.25:
+    hostname: switch-spare-3
+    network: Infra
+    mac: 68:d7:9a:69:c3:12
+    upstream: core
+    port: 15
+  10.0.0.26:
+    hostname: switch-spare-fe-1
+    network: Infra
+    mac: 74:ac:b9:ab:a6:b6
+    upstream: core
+    port: 17
+  10.0.0.27:
+    hostname: switch-spare-fe-2
+    network: Infra
+    mac: 74:83:c2:0c:4b:96
+    upstream: core
+    port: 16
+  10.0.0.3:
+    hostname: leaf
+    network: Infra
+    mac: 74:83:c2:6f:5b:71
+    upstream: core
+    port: 25
+  10.0.0.40:
+    hostname: wap-gym
+    network: Infra
+    mac: 68:d7:9a:73:a8:14
+    upstream: core
+    port: 2
+  10.0.0.41:
+    hostname: wap-basement
+    network: Infra
+    mac: fc:ec:da:f0:cd:9e
+    upstream: core
+    port: 1
+  10.0.0.42:
+    hostname: wap-garage
+    network: Infra
+    mac: 68:d7:9a:73:ac:75
+    upstream: core
+    port: 3
+  10.0.0.43:
+    hostname: wap-library
+    network: Infra
+    mac: f0:9f:c2:33:41:b1
+    upstream: core
+    port: 4
+  10.0.0.44:
+    hostname: wap-master
+    network: Infra
+    mac: e0:63:da:3c:37:96
+    upstream: core
+    port: 5
+  10.0.0.45:
+    hostname: wap-guest
+    network: Infra
+    mac: 68:d7:9a:73:ac:ab
+    upstream: core
+    port: 6
+  10.0.0.50:
+    hostname: eap-front
+    network: Infra
+    mac: 68:d7:9a:89:a5:3b
+    upstream: core
+    port: 12
+  10.0.0.51:
+    hostname: eap-fence
+    network: Infra
+    mac: 68:d7:9a:89:a5:dd
+    upstream: core
+    port: 10
+  10.0.0.52:
+    hostname: eap-deck
+    network: Infra
+    mac: 68:d7:9a:89:a5:e6
+    upstream: core
+    port: 11
+  10.0.1.100:
+    hostname: host
+    network: Servers
+    mac: 2c:4d:54:4f:be:c3
+    upstream: leaf
+    port: 24
+  10.0.1.110:
+    hostname: influxdb
+    network: Servers
+    mac: 52:54:a7:af:09:5c
+  10.0.1.112:
+    hostname: hub
+    network: Servers
+    mac: 52:54:a3:47:c5:88
+  10.0.1.113:
+    hostname: syslog
+    network: Servers
+    mac: 52:54:b8:25:57:ec
+  10.0.1.114:
+    hostname: metrics
+    network: Servers
+    mac: 52:54:5e:73:8e:d0
+  10.0.1.115:
+    hostname: grafana
+    network: Servers
+    mac: 52:54:51:ba:82:be
+  10.0.1.116:
+    hostname: teslamate
+    network: Servers
+    mac: 52:54:99:4f:1f:1c
+  10.0.1.117:
+    hostname: cultivator
+    network: Servers
+    mac: 52:54:3c:49:43:96
+  10.0.1.118:
+    hostname: unpoller
+    network: Servers
+    mac: 52:54:a3:c2:40:f0
+  10.0.1.150:
+    hostname: nas
+    network: Servers
+    mac: 00:11:32:ef:2b:cd
+    upstream: core
+    port: 23
+    agg_count: 2
+  10.0.1.80:
+    hostname: hass
+    network: Servers
+    mac: 1c:69:7a:67:79:7f
+    upstream: leaf
+    port: 23
+  10.0.1.91:
+    hostname: kiosk-office
+    network: Servers
+    mac: e4:5f:01:6c:c0:37
+    upstream: switch-office
+    port: 4
+  10.0.1.92:
+    hostname: kiosk-poker
+    network: Servers
+    mac: e4:5f:01:c9:42:35
+    upstream: leaf
+    port: 12
+  10.0.2.10:
+    hostname: cam-front
+    network: Security
+    mac: b8:a4:4f:23:1c:8e
+    upstream: leaf
+    port: 2
+  10.0.2.11:
+    hostname: cam-deck
+    network: Security
+    mac: b8:a4:4f:23:19:63
+    upstream: leaf
+    port: 3
+  10.0.2.12:
+    hostname: cam-fence
+    network: Security
+    mac: b8:a4:4f:23:01:4a
+    upstream: leaf
+    port: 1
+  10.0.2.13:
+    hostname: cam-garage
+    network: Security
+    mac: b8:a4:4f:22:fb:3e
+    upstream: leaf
+    port: 6
+  10.0.2.14:
+    hostname: cam-patio
+    network: Security
+    mac: b8:a4:4f:22:f9:0b
+    upstream: leaf
+    port: 4
+  10.0.2.2:
+    hostname: nas
+    network: Security
+    mac: 00:11:32:ef:2b:ce
+    upstream: leaf
+    port: 19
+    agg_count: 2
+  172.16.0.10:
+    hostname: snoo
+    network: IoT
+    mac: dc:4a:9e:d1:8b:90
+  172.16.0.11:
+    hostname: simplisafe
+    network: IoT
+    mac: f8:51:28:bf:55:5d
+  172.16.0.12:
+    hostname: myq
+    network: IoT
+    mac: cc:6a:10:04:54:6e
+  172.16.0.13:
+    hostname: nanoleaf
+    network: IoT
+    mac: 00:55:da:59:f9:fa
+  172.16.0.14:
+    hostname: gaming-remote
+    network: IoT
+    mac: be:55:00:73:e0:7c
+  172.16.0.15:
+    hostname: jasnah
+    network: IoT
+    mac: cc:88:26:3d:bb:09
+  172.16.0.16:
+    hostname: akerl-oasis
+    network: IoT
+    mac: '08:91:15:e1:1c:f5'
+  172.16.0.17:
+    hostname: tivo-theatre
+    network: IoT
+    mac: 78:6a:1f:5d:8e:fb
+    upstream: switch-theatre
+    port: 14
+  172.16.0.2:
+    hostname: appletv
+    network: IoT
+    mac: 64:d2:c4:a7:e4:01
+    upstream: switch-family
+    port: 3
+  172.16.0.20:
+    hostname: solar-gw-1
+    network: IoT
+    mac: 28:0f:eb:01:85:9c
+  172.16.0.21:
+    hostname: solar-gw-2
+    network: IoT
+    mac: 28:0f:eb:10:91:09
+  172.16.0.22:
+    hostname: solar-pv-1
+    network: IoT
+    mac: 98:ed:5c:97:fc:ac
+  172.16.0.23:
+    hostname: solar-pv-2
+    network: IoT
+    mac: 98:ed:5c:94:91:8e
+  172.16.0.24:
+    hostname: solar-pv-3
+    network: IoT
+    mac: 98:ed:5c:94:91:68
+  172.16.0.25:
+    hostname: ev-charger-1
+    network: IoT
+    mac: 98:ed:5c:8d:bf:23
+  172.16.0.26:
+    hostname: ev-charger-2
+    network: IoT
+    mac: c0:ee:40:85:7b:72
+  172.16.0.27:
+    hostname: ev-charger-3
+    network: IoT
+    mac: 98:ed:5c:8d:be:4c
+  172.16.0.3:
+    hostname: vrroom
+    network: IoT
+    mac: 18:9b:a5:d4:01:2d
+    upstream: switch-theatre
+    port: 11
+  172.16.0.30:
+    hostname: power-shou
+    network: IoT
+    mac: 3c:84:6a:66:93:80
+  172.16.0.31:
+    hostname: power-sheng
+    network: IoT
+    mac: c0:06:c3:60:35:5a
+  172.16.0.32:
+    hostname: power-serverfan
+    network: IoT
+    mac: 84:d8:1b:8a:9d:73
+  172.16.0.33:
+    hostname: power-chargers
+    network: IoT
+    mac: b0:a7:b9:fa:7e:2a
+  172.16.0.34:
+    hostname: power-desktop
+    network: IoT
+    mac: b0:a7:b9:fa:75:b0
+  172.16.0.4:
+    hostname: tivo-family
+    network: IoT
+    mac: 78:6a:1f:6f:a0:7f
+    upstream: switch-family
+    port: 2
+  172.16.0.40:
+    hostname: rh-bedroom
+    network: IoT
+    mac: 94:b5:55:ef:bf:f0
+  172.16.0.41:
+    hostname: rh-nursery
+    network: IoT
+    mac: c4:de:e2:01:6f:6c
+  172.16.0.42:
+    hostname: rh-office
+    network: IoT
+    mac: c4:de:e2:01:8c:28
+  172.16.0.43:
+    hostname: rh-tea
+    network: IoT
+    mac: 40:22:d8:4b:a2:f8
+  172.16.0.44:
+    hostname: rh-basement
+    network: IoT
+    mac: 3c:e9:0e:1e:99:8c
+  172.16.0.5:
+    hostname: tivo-bar
+    network: IoT
+    mac: 78:6a:1f:5d:a3:97
+    upstream: core
+    port: 20
+  172.16.0.6:
+    hostname: receiver-theatre
+    network: IoT
+    mac: 00:06:78:6f:0a:d4
+    upstream: switch-theatre
+    port: 13
+  172.16.0.7:
+    hostname: tv-family
+    network: IoT
+    mac: cc:a1:2b:cb:16:d7
+    upstream: switch-family
+    port: 4
+  172.16.1.10:
+    hostname: cam-sunroom
+    network: IoT
+    mac: b8:a4:4f:3a:95:6d
+  172.16.1.101:
+    hostname: lifx-1
+    network: IoT
+    mac: d0:73:d5:70:53:12
+  172.16.1.102:
+    hostname: lifx-2
+    network: IoT
+    mac: d0:73:d5:68:2b:fc
+  172.16.1.103:
+    hostname: lifx-3
+    network: IoT
+    mac: d0:73:d5:70:58:7b
+  172.16.1.11:
+    hostname: cam-family
+    network: IoT
+    mac: b8:a4:4f:15:fc:3f
+  172.16.1.110:
+    hostname: smoke-basement
+    network: IoT
+    mac: cc:a7:c1:69:20:00
+  172.16.1.111:
+    hostname: smoke-suite
+    network: IoT
+    mac: cc:a7:c1:69:6f:84
+  172.16.1.112:
+    hostname: smoke-gym
+    network: IoT
+    mac: 64:16:66:cf:15:ba
+  172.16.1.113:
+    hostname: smoke-theatre
+    network: IoT
+    mac: cc:a7:c1:69:4c:60
+  172.16.1.114:
+    hostname: smoke-library
+    network: IoT
+    mac: cc:a7:c1:69:4f:9e
+  172.16.1.115:
+    hostname: smoke-hallway
+    network: IoT
+    mac: cc:a7:c1:69:97:34
+  172.16.1.116:
+    hostname: smoke-master
+    network: IoT
+    mac: cc:a7:c1:69:58:74
+  172.16.1.117:
+    hostname: smoke-nursery
+    network: IoT
+    mac: cc:a7:c1:69:12:11
+  172.16.1.118:
+    hostname: smoke-office
+    network: IoT
+    mac: cc:a7:c1:69:59:2d
+  172.16.1.119:
+    hostname: smoke-upstairs
+    network: IoT
+    mac: cc:a7:c1:69:5e:fc
+  172.16.1.12:
+    hostname: cam-living
+    network: IoT
+    mac: b8:a4:4f:3a:96:80
+  172.16.1.120:
+    hostname: smoke-guest
+    network: IoT
+    mac: cc:a7:c1:69:4b:3c
+  172.16.1.13:
+    hostname: cam-basement
+    network: IoT
+    mac: b8:a4:4f:3a:c3:a6
+  172.16.1.19:
+    hostname: kiosk-tea
+    network: IoT
+    mac: e4:5f:01:c9:4b:b9
+  172.16.1.20:
+    hostname: thermostat-bar
+    network: IoT
+    mac: cc:a7:c1:0a:ec:70
+  172.16.1.21:
+    hostname: thermostat-basement
+    network: IoT
+    mac: cc:a7:c1:0b:8f:7c
+  172.16.1.22:
+    hostname: thermostat-library
+    network: IoT
+    mac: cc:a7:c1:0c:c6:4e
+  172.16.1.23:
+    hostname: thermostat-kitchen
+    network: IoT
+    mac: cc:a7:c1:0c:ab:60
+  172.16.1.24:
+    hostname: thermostat-sunroom
+    network: IoT
+    mac: cc:a7:c1:1f:19:f6
+  172.16.1.25:
+    hostname: thermostat-master
+    network: IoT
+    mac: cc:a7:c1:0b:3d:80
+  172.16.1.26:
+    hostname: thermostat-guest
+    network: IoT
+    mac: cc:a7:c1:0b:04:21
+  172.16.1.27:
+    hostname: nestconnect-1
+    network: IoT
+    mac: 18:b4:30:fe:13:0f
+  172.16.1.29:
+    hostname: nesthello
+    network: IoT
+    mac: f0:ef:86:f0:1a:6a
+  172.16.1.30:
+    hostname: nestcam-nursery
+    network: IoT
+    mac: 64:16:66:df:03:80
+  172.16.1.40:
+    hostname: echo-basement
+    network: IoT
+    mac: 18:74:2e:22:21:be
+  172.16.1.41:
+    hostname: echo-kitchen
+    network: IoT
+    mac: 34:d2:70:b7:7f:12
+  172.16.1.42:
+    hostname: echo-bedroom
+    network: IoT
+    mac: 74:ec:b2:79:9e:41
+  172.16.1.43:
+    hostname: echo-family
+    network: IoT
+    mac: 50:f5:da:d4:00:e1
+  172.16.1.50:
+    hostname: airthings-hub
+    network: IoT
+    mac: d0:14:11:90:42:e1
+    upstream: leaf
+    port: 17
+  172.16.1.51:
+    hostname: airthings-office
+    network: IoT
+    mac: 6c:79:b8:ef:b5:4e
+  172.16.1.60:
+    hostname: flic-office
+    network: IoT
+    mac: 7e:a7:b0:31:9f:b0
+  172.16.1.61:
+    hostname: flic-bedroom
+    network: IoT
+    mac: 76:ee:2a:9c:72:0e
+  172.16.1.70:
+    hostname: owlet
+    network: IoT
+    mac: d0:17:69:f5:27:a0
+  172.16.1.71:
+    hostname: hatch
+    network: IoT
+    mac: 24:6f:28:00:d6:58
+  172.16.1.80:
+    hostname: roomba-rover
+    network: IoT
+    mac: 50:14:79:4f:ed:1d
+  172.16.1.81:
+    hostname: roomba-spot
+    network: IoT
+    mac: 50:14:79:55:73:f5
+  172.16.1.90:
+    hostname: chromecast-bedroom
+    network: IoT
+    mac: 54:60:09:11:fb:e2
+  172.16.20.10:
+    hostname: ps5
+    network: Gaming
+    mac: 00:e4:21:9e:1a:8f
+    upstream: switch-theatre
+    port: 15
+  172.16.20.11:
+    hostname: hyrum
+    network: Gaming
+    mac: 7c:10:c9:3c:03:88
+    upstream: switch-theatre
+    port: 16
+  192.168.1.10:
+    hostname: lift
+    network: Standard
+    mac: 26:b7:f8:a0:25:10
+  192.168.1.100:
+    hostname: kelly-switch-wired
+    network: Standard
+    mac: 00:0e:c6:62:e8:16
+    upstream: switch-family
+    port: 5
+  192.168.1.101:
+    hostname: kelly-imac
+    network: Standard
+    mac: 3c:a6:f6:7b:45:c6
+  192.168.1.102:
+    hostname: kelly-iphone
+    network: Standard
+    mac: 9a:c4:78:70:02:2e
+  192.168.1.104:
+    hostname: kelly-watch
+    network: Standard
+    mac: 92:d2:35:40:60:76
+  192.168.1.11:
+    hostname: szeth
+    network: Standard
+    mac: 02:df:8f:87:dd:f8
+  192.168.1.12:
+    hostname: wilson
+    network: Standard
+    mac: f0:2f:4b:08:a6:77
+  192.168.1.13:
+    hostname: wilson-wired
+    network: Standard
+    mac: 5c:85:7e:35:5b:b4
+    upstream: switch-office
+    port: 3
+  192.168.1.14:
+    hostname: laker-mac
+    network: Standard
+    mac: bc:d0:74:32:53:b1
+  192.168.1.15:
+    hostname: laker-mac-wired
+    network: Standard
+    mac: 5c:85:7e:35:5b:d2
+    upstream: switch-office
+    port: 2
+  192.168.1.16:
+    hostname: philote
+    network: Standard
+    mac: 1c:69:7a:aa:a7:74
+    upstream: switch-office
+    port: 5
+  192.168.1.18:
+    hostname: bean
+    network: Standard
+    mac: 78:4f:43:84:02:b9
+  192.168.1.19:
+    hostname: wrist
+    network: Standard
+    mac: 82:3a:71:13:bc:e7
+  192.168.1.2:
+    hostname: printer
+    network: Standard
+    mac: 38:22:e2:90:2e:64
+    upstream: leaf
+    port: 7
+  192.168.1.21:
+    hostname: switch
+    network: Standard
+    mac: 20:0b:cf:9b:12:bd
+  192.168.1.3:
+    hostname: usb-kvm
+    network: Standard
+    mac: b8:27:eb:a1:38:10

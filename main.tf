@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     unifi = {
-      source  = "paultyng/unifi"
-      version = "0.41.0"
+      source  = "akerl/unifi"
+      version = "0.41.7"
     }
   }
 }
@@ -12,10 +12,12 @@ provider "unifi" {
 }
 
 locals {
-  clients_csv = csvdecode(file("${path.module}/clients.csv"))
-  clients     = { for client in local.clients_csv : client.mac => client }
-  devices_csv = csvdecode(file("${path.module}/devices.csv"))
-  devices     = { for client in local.devices_csv : client.mac => client }
+  yaml    = yamldecode(file("${path.module}/data.yaml"))
+  clients = { for ip, client in local.yaml.clients : client.mac => merge(client, { "ip" = ip }) }
+  devices = { for mac, client in local.clients : mac => client if client.network == "Infra" }
+  wans    = local.yaml.wans
+  lans    = local.yaml.lans
+  wifi    = local.yaml.wifi
 }
 
 data "unifi_ap_group" "default" {
@@ -25,7 +27,7 @@ data "unifi_user_group" "default" {
 }
 
 resource "unifi_network" "wans" {
-  for_each = var.wans
+  for_each = local.wans
 
   name          = each.key
   purpose       = "wan"
@@ -40,7 +42,7 @@ resource "unifi_network" "wans" {
 }
 
 resource "unifi_network" "lans" {
-  for_each = var.lans
+  for_each = local.lans
 
   name    = each.key
   purpose = "corporate"
@@ -59,7 +61,7 @@ resource "unifi_network" "lans" {
 }
 
 #resource "unifi_wlan" "wifi" {
-#  for_each = var.wifi
+#  for_each = local.wifi
 #
 #  name       = each.key
 #  security   = "wpapsk"
@@ -82,22 +84,17 @@ resource "unifi_user" "clients" {
   for_each = local.clients
 
   mac      = each.key
-  name     = "${each.value.network}.${each.value.hostname}"
+  name     = "${lower(each.value.network)}.${each.value.hostname}"
   fixed_ip = each.value.ip
 }
 
-resource "unifi_port_profile" "disabled" {
-  name = "Disabled"
-
-  poe_mode = "off"
-  forward  = "disabled"
-}
-
 resource "unifi_port_profile" "network" {
-  for_each = var.lans
+  for_each = unifi_network.lans
 
+  name                  = each.value.name
   poe_mode              = "auto"
-  native_networkconf_id = unifi_network.lans[each.key].id
+  forward               = each.value.name == "Infra" ? "customize" : "native"
+  native_networkconf_id = each.value.id
 }
 
 resource "unifi_device" "devices" {
@@ -106,13 +103,23 @@ resource "unifi_device" "devices" {
   mac  = each.key
   name = each.value.hostname
 
-  lifecycle {
-    ignore_changes = [
-      port_override,
-    ]
+  dynamic "port_override" {
+    for_each = {
+      for mac, client in local.clients : client.port => client
+      if lookup(client, "upstream", null) == each.value.hostname
+    }
+
+    content {
+      number              = port_override.key
+      name                = "${lower(port_override.value.network)}.${port_override.value.hostname}"
+      native_network_id   = contains(keys(port_override.value), "agg_count") ? unifi_network.lans[port_override.value.network].id : null
+      port_profile_id     = contains(keys(port_override.value), "agg_count") ? null : unifi_port_profile.network[port_override.value.network].id
+      op_mode             = contains(keys(port_override.value), "agg_count") ? "aggregate" : "switch"
+      aggregate_num_ports = contains(keys(port_override.value), "agg_count") ? port_override.value.agg_count : null
+    }
   }
 }
 
 output "site_addresses" {
-  value = { for i, x in local.clients : x.ip => "${x.hostname}.${x.network}" }
+  value = { for i, x in local.clients : x.ip => "${x.hostname}.${lower(x.network)}" }
 }
