@@ -2,7 +2,7 @@ terraform {
   required_providers {
     unifi = {
       source  = "akerl/unifi"
-      version = "0.41.7"
+      version = "0.41.8"
     }
   }
 }
@@ -60,25 +60,26 @@ resource "unifi_network" "lans" {
   multicast_dns = each.value.multicast_dns
 }
 
-#resource "unifi_wlan" "wifi" {
-#  for_each = local.wifi
-#
-#  name       = each.key
-#  security   = "wpapsk"
-#
-#  is_guest   = each.value.is_guest
-#  network_id = unifi_network.lans[each.value.network_name].id
-#
-#  no2ghz_oui           = each.value.band_steering
-#  uapsd                = each.value.uapsd
-#  fast_roaming_enabled = each.value.fast_roaming_enabled
-#  pmf_mode             = each.value.pmf_mode
-#  wpa3_support         = each.value.wpa3_support
-#  wpa3_transition      = each.value.wpa3_support
-#
-#  ap_group_ids  = [data.unifi_ap_group.default.id]
-#  user_group_id = data.unifi_user_group.default.id
-#}
+resource "unifi_wlan" "wifi" {
+  for_each = local.wifi
+
+  name       = each.key
+  security   = "wpapsk"
+  passphrase = "skip"
+
+  is_guest   = each.value.is_guest
+  network_id = unifi_network.lans[each.value.network_name].id
+
+  no2ghz_oui           = each.value.band_steering
+  uapsd                = each.value.uapsd
+  fast_roaming_enabled = each.value.fast_roaming_enabled
+  pmf_mode             = each.value.pmf_mode
+  wpa3_support         = each.value.wpa3_support
+  wpa3_transition      = each.value.wpa3_support
+
+  ap_group_ids  = [data.unifi_ap_group.default.id]
+  user_group_id = data.unifi_user_group.default.id
+}
 
 resource "unifi_user" "clients" {
   for_each = local.clients

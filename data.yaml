@@ -62,14 +62,6 @@ wifi:
     fast_roaming_enabled: true
     pmf_mode: optional
     wpa3_support: true
-  akerl_guest:
-    network_name: Guest
-    is_guest: false
-    band_steering: false
-    uapsd: false
-    fast_roaming_enabled: true
-    pmf_mode: optional
-    wpa3_support: true
   akerl_iot:
     network_name: IoT
     is_guest: false
@@ -78,6 +70,14 @@ wifi:
     fast_roaming_enabled: false
     pmf_mode: disabled
     wpa3_support: false
+  akerl_guest:
+    network_name: Guest
+    is_guest: false
+    band_steering: false
+    uapsd: false
+    fast_roaming_enabled: true
+    pmf_mode: optional
+    wpa3_support: true
 clients:
   10.0.0.1:
     hostname: gateway
