@@ -516,7 +516,7 @@ clients:
   172.16.1.19:
     hostname: kiosk-tea
     network: IoT
-    mac: e4:5f:01:c9:4b:b9
+    mac: f8:28:19:cb:e2:85
   172.16.1.20:
     hostname: thermostat-bar
     network: IoT
