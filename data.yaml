@@ -607,10 +607,10 @@ clients:
     hostname: roomba-spot
     network: IoT
     mac: 50:14:79:55:73:f5
-  172.16.1.90:
-    hostname: chromecast-bedroom
+  172.16.1.91:
+    hostname: chromecast-gym
     network: IoT
-    mac: 54:60:09:11:fb:e2
+    mac: f4:f5:d8:aa:7a:6c
   172.16.20.10:
     hostname: ps5
     network: Gaming
