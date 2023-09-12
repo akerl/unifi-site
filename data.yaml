@@ -253,13 +253,13 @@ clients:
   10.0.1.91:
     hostname: kiosk-office
     network: Servers
-    mac: e4:5f:01:6c:c0:37
+    mac: 00:23:24:96:ba:c0
     upstream: switch-office
     port: 4
   10.0.1.92:
     hostname: kiosk-poker
     network: Servers
-    mac: e4:5f:01:c9:42:35
+    mac: 00:23:24:78:34:7a
     upstream: leaf
     port: 12
   10.0.2.10:
