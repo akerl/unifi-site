@@ -454,6 +454,10 @@ clients:
     hostname: rh-basement
     network: IoT
     mac: 3c:e9:0e:1e:99:8c
+  172.16.1.1:
+    hostname: hass
+    network: IoT
+    mac: 84:c5:a6:a4:98:09
   172.16.1.10:
     hostname: cam-sunroom
     network: IoT
