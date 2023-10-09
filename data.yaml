@@ -382,10 +382,6 @@ clients:
     mac: 78:6a:1f:5d:8e:fb
     upstream: switch-theatre
     port: 14
-  172.16.0.18:
-    hostname: sofabaton-theatre
-    network: IoT
-    mac: d4:f9:8d:14:a8:6c
   172.16.0.20:
     hostname: solar-gw-1
     network: IoT

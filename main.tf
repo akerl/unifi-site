@@ -56,6 +56,12 @@ resource "unifi_network" "lans" {
   dhcp_enabled = true
   dhcp_dns     = ["8.8.8.8", "8.8.4.4"]
 
+  dhcp_v6_start    = "::2"
+  dhcp_v6_stop     = "::7d1"
+  ipv6_pd_start    = "::2"
+  ipv6_pd_stop     = "::7d1"
+  ipv6_ra_priority = "high"
+
   igmp_snooping = false
   multicast_dns = each.value.multicast_dns
 }
