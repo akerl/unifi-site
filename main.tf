@@ -18,6 +18,7 @@ locals {
   wans    = local.yaml.wans
   lans    = local.yaml.lans
   wifi    = local.yaml.wifi
+  ports   = local.yaml.ports
 }
 
 data "unifi_ap_group" "default" {
@@ -104,6 +105,17 @@ resource "unifi_port_profile" "network" {
   native_networkconf_id = each.value.id
 }
 
+resource "unifi_port_profile" "ports" {
+  for_each = local.ports
+
+  name                                  = each.key
+  poe_mode                              = "auto"
+  forward                               = "customize"
+  native_networkconf_id                 = unifi_network.lans[each.value.native].id
+  excluded_networkconf_ids              = [for x in unifi_network.lans : x.id if !contains(each.value.allowed, x.name) && x.name != each.value.native]
+  show_traffic_restriction_as_allowlist = true
+}
+
 resource "unifi_device" "devices" {
   for_each = local.devices
 
@@ -120,7 +132,7 @@ resource "unifi_device" "devices" {
       number              = port_override.key
       name                = "${lower(port_override.value.network)}.${port_override.value.hostname}"
       native_network_id   = contains(keys(port_override.value), "agg_count") ? unifi_network.lans[port_override.value.network].id : null
-      port_profile_id     = contains(keys(port_override.value), "agg_count") ? null : unifi_port_profile.network[port_override.value.network].id
+      port_profile_id     = contains(keys(port_override.value), "agg_count") ? null : contains(keys(port_override.value), "profile") ? unifi_port_profile.ports[port_override.value.profile].id : unifi_port_profile.network[port_override.value.network].id
       op_mode             = contains(keys(port_override.value), "agg_count") ? "aggregate" : "switch"
       aggregate_num_ports = contains(keys(port_override.value), "agg_count") ? port_override.value.agg_count : null
     }
