@@ -715,4 +715,4 @@ clients:
   192.168.1.104:
     hostname: kelly-watch
     network: Standard
-    mac: 92:d2:35:40:60:76
+    mac: c2:cf:b9:93:05:a3
