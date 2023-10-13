@@ -370,10 +370,6 @@ clients:
     hostname: nanoleaf
     network: IoT
     mac: 00:55:da:59:f9:fa
-  172.16.0.14:
-    hostname: gaming-remote
-    network: IoT
-    mac: be:55:00:73:e0:7c
   172.16.0.15:
     hostname: jasnah
     network: IoT
