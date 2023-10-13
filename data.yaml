@@ -712,6 +712,10 @@ clients:
     hostname: kelly-iphone
     network: Standard
     mac: 9a:c4:78:70:02:2e
+  192.168.1.103:
+    hostname: kelly-ipad
+    network: Standard
+    mac: 9e:72:04:14:2a:c3
   192.168.1.104:
     hostname: kelly-watch
     network: Standard
