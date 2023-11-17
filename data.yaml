@@ -250,10 +250,6 @@ clients:
     hostname: grafana
     network: Servers
     mac: 52:54:51:ba:82:be
-  10.0.1.116:
-    hostname: teslamate
-    network: Servers
-    mac: 52:54:99:4f:1f:1c
   10.0.1.117:
     hostname: cultivator
     network: Servers
