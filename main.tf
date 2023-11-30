@@ -2,7 +2,7 @@ terraform {
   required_providers {
     unifi = {
       source  = "akerl/unifi"
-      version = "0.41.9"
+      version = "0.41.10"
     }
   }
 }
@@ -108,12 +108,11 @@ resource "unifi_port_profile" "network" {
 resource "unifi_port_profile" "ports" {
   for_each = local.ports
 
-  name                                  = each.key
-  poe_mode                              = "auto"
-  forward                               = "customize"
-  native_networkconf_id                 = unifi_network.lans[each.value.native].id
-  excluded_networkconf_ids              = [for x in unifi_network.lans : x.id if !contains(each.value.allowed, x.name) && x.name != each.value.native]
-  show_traffic_restriction_as_allowlist = true
+  name                     = each.key
+  poe_mode                 = "auto"
+  forward                  = "customize"
+  native_networkconf_id    = unifi_network.lans[each.value.native].id
+  excluded_networkconf_ids = [for x in unifi_network.lans : x.id if !contains(each.value.allowed, x.name) && x.name != each.value.native]
 }
 
 resource "unifi_device" "devices" {
