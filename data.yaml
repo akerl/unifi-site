@@ -258,6 +258,10 @@ clients:
     hostname: unpoller
     network: Servers
     mac: 52:54:0f:0d:09:1a
+  10.0.1.119:
+    hostname: mqtt
+    network: Servers
+    mac: 52:54:9d:f0:ac:5a
   10.0.1.150:
     hostname: nas
     network: Servers
