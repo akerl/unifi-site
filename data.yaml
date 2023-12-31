@@ -542,6 +542,10 @@ clients:
     hostname: airthings-office
     network: IoT
     mac: 6c:79:b8:ef:b5:4e
+  172.16.1.52:
+    hostname: netatmo
+    network: IoT
+    mac: 70:ee:50:84:ac:28
   172.16.1.60:
     hostname: flic-office
     network: IoT
