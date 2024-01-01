@@ -637,15 +637,15 @@ clients:
   172.16.1.130:
     hostname: gdo-truck
     network: IoT
-    mac: 08:3a:8d:f6:22:dc
+    mac: 48:3f:da:c9:3c:15
   172.16.1.131:
     hostname: gdo-jeep
     network: IoT
-    mac: 08:3a:8d:f6:22:dd
+    mac: c8:c9:a3:11:c2:af
   172.16.1.132:
     hostname: gdo-highlander
     network: IoT
-    mac: 08:3a:8d:f6:22:de
+    mac: 08:3a:8d:f6:22:dc
   172.16.20.10:
     hostname: ps5
     network: Gaming
