@@ -371,9 +371,9 @@ clients:
     network: IoT
     mac: 00:55:da:59:f9:fa
   172.16.0.15:
-    hostname: jasnah
+    hostname: govee-theatre
     network: IoT
-    mac: cc:88:26:3d:bb:09
+    mac: d4:ad:fc:9b:05:53
   172.16.0.16:
     hostname: akerl-oasis
     network: IoT
@@ -437,7 +437,7 @@ clients:
     network: IoT
     mac: b0:a7:b9:fa:75:b0
   172.16.0.40:
-    hostname: rh-bedroom
+    hostname: rh-living
     network: IoT
     mac: 94:b5:55:ef:bf:f0
   172.16.0.41:
@@ -456,6 +456,14 @@ clients:
     hostname: rh-basement
     network: IoT
     mac: 3c:e9:0e:1e:99:8c
+  172.16.0.45:
+    hostname: rh-bar
+    network: IoT
+    mac: 30:30:f9:f8:69:50
+  172.16.0.46:
+    hostname: rh-bedroom
+    network: IoT
+    mac: 30:30:f9:f8:3c:f0
   172.16.1.1:
     hostname: hass
     network: IoT
@@ -578,6 +586,10 @@ clients:
     hostname: chromecast-gym
     network: IoT
     mac: f4:f5:d8:aa:7a:6c
+  172.16.1.92:
+    hostname: chromecastaudio-basement
+    network: IoT
+    mac: a4:77:33:f0:6c:3a
   172.16.1.101:
     hostname: lifx-1
     network: IoT
@@ -727,11 +739,11 @@ clients:
   192.168.1.102:
     hostname: kelly-iphone
     network: Standard
-    mac: 9a:c4:78:70:02:2e
+    mac: ca:7f:38:20:cf:ca
   192.168.1.103:
     hostname: kelly-ipad
     network: Standard
-    mac: 9e:72:04:14:2a:c3
+    mac: 22:5b:f4:75:b3:97
   192.168.1.104:
     hostname: kelly-watch
     network: Standard
