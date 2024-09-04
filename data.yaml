@@ -262,6 +262,10 @@ clients:
     hostname: mqtt
     network: Servers
     mac: 52:54:9d:f0:ac:5a
+  10.0.1.120:
+    hostname: psn
+    network: Servers
+    mac: 52:54:1a:99:ff:4f
   10.0.1.150:
     hostname: nas
     network: Servers
@@ -658,6 +662,10 @@ clients:
     hostname: gdo-highlander
     network: IoT
     mac: 08:3a:8d:f6:22:dc
+  172.16.1.133:
+    hostname: toniebox
+    network: IoT
+    mac: 48:27:e2:f3:7f:40
   172.16.20.10:
     hostname: ps5
     network: Gaming
@@ -714,6 +722,10 @@ clients:
     mac: 1c:69:7a:aa:a7:74
     upstream: switch-office
     port: 5
+  192.168.1.17:
+    hostname: vivenna
+    network: Standard
+    mac: 84:94:37:cb:98:87
   192.168.1.18:
     hostname: bean
     network: Standard
