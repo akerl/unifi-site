@@ -230,10 +230,6 @@ clients:
     mac: 2c:4d:54:4f:be:c3
     upstream: leaf
     port: 24
-  10.0.1.110:
-    hostname: influxdb
-    network: Servers
-    mac: 52:54:c5:5b:a3:ac
   10.0.1.112:
     hostname: hub
     network: Servers
