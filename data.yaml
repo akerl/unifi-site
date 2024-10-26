@@ -669,9 +669,9 @@ clients:
     upstream: switch-theatre
     port: 15
   172.16.20.11:
-    hostname: hyrum
+    hostname: szilard
     network: Gaming
-    mac: 7c:10:c9:3c:03:88
+    mac: 10:ff:e0:6a:ae:b8
     upstream: switch-theatre
     port: 16
   192.168.1.2:
