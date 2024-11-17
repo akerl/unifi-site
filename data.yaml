@@ -487,7 +487,7 @@ clients:
   172.16.1.19:
     hostname: kiosk-tea
     network: IoT
-    mac: f8:28:19:cb:e2:85
+    mac: a0:47:d7:20:92:df
   172.16.1.20:
     hostname: thermostat-bar
     network: IoT
