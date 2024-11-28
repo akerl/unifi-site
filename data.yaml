@@ -262,6 +262,10 @@ clients:
     hostname: mqtt
     network: Servers
     mac: 52:54:9d:f0:ac:5a
+  10.0.1.120:
+    hostname: heracles
+    network: Servers
+    mac: 52:54:e7:3f:24:35
   10.0.1.150:
     hostname: nas
     network: Servers
