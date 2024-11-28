@@ -246,6 +246,10 @@ clients:
     hostname: grafana
     network: Servers
     mac: 52:54:49:a1:11:93
+  10.0.1.116:
+    hostname: ledgerdb
+    network: Servers
+    mac: 52:54:3f:50:42:d7
   10.0.1.117:
     hostname: cultivator
     network: Servers
@@ -258,10 +262,6 @@ clients:
     hostname: mqtt
     network: Servers
     mac: 52:54:9d:f0:ac:5a
-  10.0.1.120:
-    hostname: psn
-    network: Servers
-    mac: 52:54:1a:99:ff:4f
   10.0.1.150:
     hostname: nas
     network: Servers
