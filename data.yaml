@@ -247,13 +247,9 @@ clients:
     network: Servers
     mac: 52:54:49:a1:11:93
   10.0.1.116:
-    hostname: ledgerdb
+    hostname: budget
     network: Servers
-    mac: 52:54:3f:50:42:d7
-  10.0.1.117:
-    hostname: cultivator
-    network: Servers
-    mac: 52:54:be:29:b5:38
+    mac: 52:54:95:54:ee:af
   10.0.1.118:
     hostname: unpoller
     network: Servers
