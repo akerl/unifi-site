@@ -699,7 +699,7 @@ clients:
   192.168.1.13:
     hostname: wilson-wired
     network: Standard
-    mac: 5c:85:7e:35:5b:b4
+    mac: 20:7b:d2:db:d8:1e
     upstream: switch-office
     port: 3
   192.168.1.14:
@@ -709,7 +709,7 @@ clients:
   192.168.1.15:
     hostname: laker-mac-wired
     network: Standard
-    mac: 5c:85:7e:35:5b:d2
+    mac: c8:a3:62:1a:5d:2a
     upstream: switch-office
     port: 2
   192.168.1.16:
