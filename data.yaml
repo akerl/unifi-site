@@ -484,6 +484,14 @@ clients:
     hostname: cam-basement
     network: IoT
     mac: b8:a4:4f:3a:c3:a6
+  172.16.1.14:
+    hostname: cam-alice
+    network: IoT
+    mac: b8:a4:4f:ae:b4:33
+  172.16.1.15:
+    hostname: cam-sophie
+    network: IoT
+    mac: b8:a4:4f:ae:b8:c4
   172.16.1.19:
     hostname: kiosk-tea
     network: IoT
