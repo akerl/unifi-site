@@ -363,9 +363,9 @@ clients:
     network: IoT
     mac: f8:51:28:bf:55:5d
   172.16.0.12:
-    hostname: myq
+    hostname: treadmill
     network: IoT
-    mac: cc:6a:10:04:54:6e
+    mac: 38:54:39:e4:0b:e5
   172.16.0.13:
     hostname: nanoleaf
     network: IoT
@@ -384,6 +384,10 @@ clients:
     mac: 78:6a:1f:5d:8e:fb
     upstream: switch-theatre
     port: 14
+  172.16.0.18:
+    hostname: govee-alice
+    network: IoT
+    mac: d0:c9:07:1e:f1:fc
   172.16.0.20:
     hostname: solar-gw-1
     network: IoT
@@ -713,7 +717,7 @@ clients:
   192.168.1.14:
     hostname: laker-mac
     network: Standard
-    mac: bc:d0:74:32:53:b1
+    mac: e2:84:9b:7f:6e:85
   192.168.1.15:
     hostname: laker-mac-wired
     network: Standard
@@ -729,7 +733,7 @@ clients:
   192.168.1.17:
     hostname: vivenna
     network: Standard
-    mac: 84:94:37:cb:98:87
+    mac: c2:7d:64:35:7b:77
   192.168.1.18:
     hostname: bean
     network: Standard
@@ -737,11 +741,15 @@ clients:
   192.168.1.19:
     hostname: wrist
     network: Standard
-    mac: de:54:7c:35:66:91
+    mac: b6:6f:c2:99:e9:bb
   192.168.1.21:
     hostname: switch
     network: Standard
     mac: 20:0b:cf:9b:12:bd
+  192.168.1.22:
+    hostname: work-phone
+    network: Standard
+    mac: 02:a6:81:3a:15:ec
   192.168.1.100:
     hostname: kelly-switch-wired
     network: Standard
