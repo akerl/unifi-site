@@ -587,9 +587,13 @@ clients:
     network: IoT
     mac: d0:17:69:f5:27:a0
   172.16.1.71:
-    hostname: hatch
+    hostname: hatch-sophie
     network: IoT
     mac: 24:6f:28:00:d6:58
+  172.16.1.72:
+    hostname: hatch-alice
+    network: IoT
+    mac: f8:b3:b7:b3:d4:5c
   172.16.1.80:
     hostname: roomba-rover
     network: IoT
@@ -705,9 +709,9 @@ clients:
     network: Standard
     mac: 56:e0:49:65:73:eb
   192.168.1.11:
-    hostname: szeth
+    hostname: alice-ipad
     network: Standard
-    mac: 02:df:8f:87:dd:f8
+    mac: c6:53:6b:d9:cd:15
   192.168.1.12:
     hostname: wilson
     network: Standard
