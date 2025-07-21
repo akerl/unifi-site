@@ -270,6 +270,10 @@ clients:
     hostname: influx
     network: Servers
     mac: 52:54:32:f8:1e:05
+  10.0.1.123:
+    hostname: garmin
+    network: Servers
+    mac: 52:54:b1:41:f3:1c
   10.0.1.150:
     hostname: nas
     network: Servers
