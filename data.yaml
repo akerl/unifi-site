@@ -266,6 +266,10 @@ clients:
     hostname: baby
     network: Servers
     mac: 52:54:54:9a:e4:fb
+  10.0.1.122:
+    hostname: influx
+    network: Servers
+    mac: 52:54:32:f8:1e:05
   10.0.1.150:
     hostname: nas
     network: Servers
