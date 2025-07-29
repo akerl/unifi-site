@@ -382,6 +382,10 @@ clients:
     hostname: nanoleaf
     network: IoT
     mac: 00:55:da:59:f9:fa
+  172.16.0.14:
+    hostname: paper
+    network: IoT
+    mac: 24:fd:fa:04:94:29
   172.16.0.15:
     hostname: govee-theatre
     network: IoT
