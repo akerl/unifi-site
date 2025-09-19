@@ -337,11 +337,11 @@ clients:
     upstream: switch-family
     port: 2
   172.16.0.5:
-    hostname: tivo-bar
+    hostname: tivo-bedroom #tivo-bar
     network: IoT
-    mac: 78:6a:1f:5d:a3:97
-    upstream: core
-    port: 20
+    mac: 00:11:d9:aa:69:f5 #78:6a:1f:5d:a3:97
+    #upstream: core
+    #port: 20
   172.16.0.6:
     hostname: receiver-theatre
     network: IoT
@@ -404,6 +404,10 @@ clients:
     hostname: govee-alice
     network: IoT
     mac: d0:c9:07:1e:f1:fc
+  172.16.0.19:
+    hostname: tv-bedroom
+    network: IoT
+    mac: 38:c8:04:2c:0a:d6
   172.16.0.20:
     hostname: solar-gw-1
     network: IoT
@@ -691,9 +695,21 @@ clients:
     network: IoT
     mac: 08:3a:8d:f6:22:dc
   172.16.1.133:
-    hostname: toniebox
+    hostname: toniebox-alice
     network: IoT
     mac: 48:27:e2:f3:7f:40
+  172.16.1.134:
+    hostname: toniebox-sophie
+    network: IoT
+    mac: f0:9e:9e:31:6f:90
+  172.16.1.135:
+    hostname: mustang
+    network: IoT
+    mac: 98:5d:ad:d0:ca:1c
+  172.16.1.136:
+    hostname: birdify
+    network: IoT
+    mac: b4:61:e9:94:8c:27
   172.16.20.10:
     hostname: ps5
     network: Gaming
@@ -723,7 +739,7 @@ clients:
   192.168.1.11:
     hostname: alice-ipad
     network: Standard
-    mac: c6:53:6b:d9:cd:15
+    mac: 3a:28:17:a6:b9:b8
   192.168.1.12:
     hostname: wilson
     network: Standard
@@ -769,7 +785,11 @@ clients:
   192.168.1.22:
     hostname: work-phone
     network: Standard
-    mac: 02:a6:81:3a:15:ec
+    mac: 0e:33:b0:c1:7f:2b
+  192.168.1.23:
+    hostname: garage
+    network: Standard
+    mac: b8:8a:60:1a:e3:a8
   192.168.1.100:
     hostname: kelly-switch-wired
     network: Standard
