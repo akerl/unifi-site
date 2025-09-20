@@ -769,7 +769,7 @@ clients:
   192.168.1.17:
     hostname: vivenna
     network: Standard
-    mac: c2:7d:64:35:7b:77
+    mac: de:de:78:10:4e:a3
   192.168.1.18:
     hostname: bean
     network: Standard
@@ -785,7 +785,7 @@ clients:
   192.168.1.22:
     hostname: work-phone
     network: Standard
-    mac: 0e:33:b0:c1:7f:2b
+    mac: aa:0e:d7:30:e3:24
   192.168.1.23:
     hostname: garage
     network: Standard
@@ -807,7 +807,7 @@ clients:
   192.168.1.103:
     hostname: kelly-ipad
     network: Standard
-    mac: 22:5b:f4:75:b3:97
+    mac: ce:aa:e3:88:4f:51
   192.168.1.104:
     hostname: kelly-watch
     network: Standard
