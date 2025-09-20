@@ -785,11 +785,15 @@ clients:
   192.168.1.22:
     hostname: work-phone
     network: Standard
-    mac: aa:0e:d7:30:e3:24
+    mac: 2c:ca:16:80:7f:bb
   192.168.1.23:
     hostname: garage
     network: Standard
     mac: b8:8a:60:1a:e3:a8
+  192.168.1.24:
+    hostname: runner
+    network: Standard
+    mac: e0:48:24:29:eb:77
   192.168.1.100:
     hostname: kelly-switch-wired
     network: Standard
