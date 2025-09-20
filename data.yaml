@@ -280,14 +280,14 @@ clients:
     mac: 00:11:32:ef:2b:cd
     upstream: core
     port: 23
-    agg_count: 2
+    agg_members: [23, 24]
   10.0.2.2:
     hostname: nas
     network: Security
     mac: 00:11:32:ef:2b:ce
     upstream: leaf
     port: 19
-    agg_count: 2
+    agg_members: [19, 20]
   10.0.2.10:
     hostname: cam-front
     network: Security

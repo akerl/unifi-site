@@ -2,7 +2,7 @@ terraform {
   required_providers {
     unifi = {
       source  = "akerl/unifi"
-      version = "0.41.10"
+      version = "1.0.4"
     }
   }
 }
@@ -128,12 +128,12 @@ resource "unifi_device" "devices" {
     }
 
     content {
-      number              = port_override.key
-      name                = "${lower(port_override.value.network)}.${port_override.value.hostname}"
-      native_network_id   = contains(keys(port_override.value), "agg_count") ? unifi_network.lans[port_override.value.network].id : null
-      port_profile_id     = contains(keys(port_override.value), "agg_count") ? null : contains(keys(port_override.value), "profile") ? unifi_port_profile.ports[port_override.value.profile].id : unifi_port_profile.network[port_override.value.network].id
-      op_mode             = contains(keys(port_override.value), "agg_count") ? "aggregate" : "switch"
-      aggregate_num_ports = contains(keys(port_override.value), "agg_count") ? port_override.value.agg_count : null
+      number            = port_override.key
+      name              = "${lower(port_override.value.network)}.${port_override.value.hostname}"
+      native_network_id = contains(keys(port_override.value), "agg_members") ? unifi_network.lans[port_override.value.network].id : null
+      port_profile_id   = contains(keys(port_override.value), "agg_members") ? null : contains(keys(port_override.value), "profile") ? unifi_port_profile.ports[port_override.value.profile].id : unifi_port_profile.network[port_override.value.network].id
+      op_mode           = contains(keys(port_override.value), "agg_members") ? "aggregate" : "switch"
+      aggregate_members = contains(keys(port_override.value), "agg_members") ? port_override.value.agg_members : null
     }
   }
 }
