@@ -701,7 +701,7 @@ clients:
   172.16.1.134:
     hostname: toniebox-sophie
     network: IoT
-    mac: f0:9e:9e:31:6f:90
+    mac: 1a:97:b8:1f:f3:8f
   172.16.1.135:
     hostname: mustang
     network: IoT
