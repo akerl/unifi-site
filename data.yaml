@@ -381,7 +381,7 @@ clients:
   172.16.0.13:
     hostname: nanoleaf
     network: IoT
-    mac: 00:55:da:59:f9:fa
+    mac: 80:8a:f7:11:5a:9d
   172.16.0.14:
     hostname: paper
     network: IoT
