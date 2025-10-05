@@ -739,7 +739,7 @@ clients:
   192.168.1.11:
     hostname: alice-ipad
     network: Standard
-    mac: 3a:28:17:a6:b9:b8
+    mac: 4e:e3:b3:72:71:35
   192.168.1.12:
     hostname: wilson
     network: Standard
