@@ -710,6 +710,10 @@ clients:
     hostname: birdify
     network: IoT
     mac: b4:61:e9:94:8c:27
+  172.16.1.137:
+    hostname: sunny
+    network: IoT
+    mac: 24:58:7c:2b:48:54
   172.16.20.10:
     hostname: ps5
     network: Gaming
