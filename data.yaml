@@ -576,6 +576,10 @@ clients:
     hostname: echo-family
     network: IoT
     mac: 50:f5:da:d4:00:e1
+  172.16.1.44:
+    hostname: echo-alice
+    network: IoT
+    mac: 4c:60:ad:ba:4f:4d
   172.16.1.50:
     hostname: airthings-hub
     network: IoT
