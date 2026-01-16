@@ -824,3 +824,7 @@ clients:
     hostname: kelly-switch
     network: Standard
     mac: 64:b5:c6:c1:01:91
+  192.168.1.106:
+    hostname: kelly-kindle
+    network: Standard
+    mac: ac:41:6a:2c:2a:36
