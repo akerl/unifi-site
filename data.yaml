@@ -378,18 +378,14 @@ clients:
     hostname: nanoleaf
     network: IoT
     mac: 80:8a:f7:11:5a:9d
-  172.16.0.14:
-    hostname: paper
-    network: IoT
-    mac: 24:fd:fa:04:94:29
   172.16.0.15:
     hostname: govee-theatre
     network: IoT
     mac: d4:ad:fc:9b:05:53
   172.16.0.16:
-    hostname: akerl-oasis
+    hostname: akerl-paper
     network: IoT
-    mac: '08:91:15:e1:1c:f5'
+    mac: 18:0b:1b:df:82:8c
   172.16.0.17:
     hostname: tivo-theatre
     network: IoT
