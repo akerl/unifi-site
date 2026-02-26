@@ -230,6 +230,12 @@ clients:
     mac: 2c:4d:54:4f:be:c3
     upstream: leaf
     port: 24
+  10.0.1.101:
+    hostname: host-kvm
+    network: Servers
+    mac: 94:83:c4:b7:89:7c
+    upstream: leaf
+    port: 16
   10.0.1.112:
     hostname: hub
     network: Servers
