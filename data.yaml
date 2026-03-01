@@ -486,6 +486,10 @@ clients:
     hostname: rh-bedroom
     network: IoT
     mac: 30:30:f9:f8:3c:f0
+  172.16.0.50:
+    hostname: slider
+    network: IoT
+    mac: 94:c9:60:ec:46:e1
   172.16.1.1:
     hostname: hass
     network: IoT
@@ -640,6 +644,10 @@ clients:
     hostname: lifx-3
     network: IoT
     mac: d0:73:d5:70:58:7b
+  172.16.1.104:
+    hostname: lifx-4
+    network: IoT
+    mac: d0:73:d5:83:fe:35
   172.16.1.110:
     hostname: smoke-basement
     network: IoT
