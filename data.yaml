@@ -724,6 +724,10 @@ clients:
     hostname: sunny
     network: IoT
     mac: 24:58:7c:2b:48:54
+  172.16.1.138:
+    hostname: yoto-alice
+    network: IoT
+    mac: 68:25:dd:43:05:18
   172.16.20.10:
     hostname: ps5
     network: Gaming
