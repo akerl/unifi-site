@@ -771,7 +771,7 @@ clients:
   192.168.1.14:
     hostname: laker-mac
     network: Standard
-    mac: e2:84:9b:7f:6e:85
+    mac: 0e:33:b0:c1:7f:2b 
   192.168.1.15:
     hostname: laker-mac-wired
     network: Standard
@@ -825,7 +825,7 @@ clients:
   192.168.1.102:
     hostname: kelly-iphone
     network: Standard
-    mac: ca:7f:38:20:cf:ca
+    mac: a2:7b:cf:6b:e7:6b
   192.168.1.103:
     hostname: kelly-ipad
     network: Standard
