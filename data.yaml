@@ -803,7 +803,7 @@ clients:
   192.168.1.22:
     hostname: work-phone
     network: Standard
-    mac: 2c:ca:16:80:7f:bb
+    mac: aa:0e:d7:30:e3:24
   192.168.1.23:
     hostname: garage
     network: Standard
@@ -829,7 +829,7 @@ clients:
   192.168.1.103:
     hostname: kelly-ipad
     network: Standard
-    mac: ce:aa:e3:88:4f:51
+    mac: 22:5b:f4:75:b3:97
   192.168.1.104:
     hostname: kelly-watch
     network: Standard
@@ -842,3 +842,7 @@ clients:
     hostname: kelly-kindle
     network: Standard
     mac: ac:41:6a:2c:2a:36
+  192.168.1.107:
+    hostname: kelly-macbook
+    network: Standard
+    mac: ce:aa:e3:88:4f:51
