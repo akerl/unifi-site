@@ -2,7 +2,7 @@ terraform {
   required_providers {
     unifi = {
       source  = "akerl/unifi"
-      version = "1.0.4"
+      version = "1.1.4"
     }
   }
 }
@@ -24,7 +24,7 @@ locals {
 data "unifi_ap_group" "default" {
 }
 
-data "unifi_user_group" "default" {
+data "unifi_client_group" "default" {
 }
 
 resource "unifi_network" "wans" {
@@ -85,10 +85,10 @@ resource "unifi_wlan" "wifi" {
   wpa3_transition      = each.value.wpa3_support
 
   ap_group_ids  = [data.unifi_ap_group.default.id]
-  user_group_id = data.unifi_user_group.default.id
+  user_group_id = data.unifi_client_group.default.id
 }
 
-resource "unifi_user" "clients" {
+resource "unifi_client" "clients" {
   for_each = local.clients
 
   mac      = each.key

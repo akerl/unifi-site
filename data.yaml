@@ -2,7 +2,7 @@
 wans:
   Shentel:
     group: WAN
-  Tello:
+  TMobile:
     group: WAN2
 lans:
   Infra:
