@@ -728,6 +728,10 @@ clients:
     hostname: yoto-alice
     network: IoT
     mac: 68:25:dd:43:05:18
+  172.16.1.139:
+    hostname: ecowitt
+    network: IoT
+    mac: d4:e9:f4:f6:45:2c
   172.16.20.10:
     hostname: ps5
     network: Gaming
