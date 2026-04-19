@@ -398,10 +398,6 @@ clients:
     mac: 78:6a:1f:5d:8e:fb
     upstream: switch-theatre
     port: 14
-  172.16.0.18:
-    hostname: govee-alice
-    network: IoT
-    mac: d0:c9:07:1e:f1:fc
   172.16.0.19:
     hostname: tv-bedroom
     network: IoT
@@ -648,6 +644,10 @@ clients:
     hostname: lifx-4
     network: IoT
     mac: d0:73:d5:83:fe:35
+  172.16.1.105:
+    hostname: lifx-5
+    network: IoT
+    mac: d0:73:d5:89:d4:80
   172.16.1.110:
     hostname: smoke-basement
     network: IoT
