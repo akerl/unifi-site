@@ -732,6 +732,10 @@ clients:
     hostname: ecowitt
     network: IoT
     mac: d4:e9:f4:f6:45:2c
+  172.16.1.140:
+    hostname: birdbath
+    network: IoT
+    mac: bc:ad:ae:6a:91:fb
   172.16.20.10:
     hostname: ps5
     network: Gaming
