@@ -620,6 +620,14 @@ clients:
     hostname: roomba-spot
     network: IoT
     mac: 50:14:79:55:73:f5
+  172.16.1.82:
+    hostname: dryer
+    network: IoT
+    mac: dc:03:98:62:91:e4
+  172.16.1.83:
+    hostname: washer
+    network: IoT
+    mac: f8:b9:5a:ea:4f:4a
   172.16.1.91:
     hostname: chromecast-gym
     network: IoT
@@ -820,6 +828,10 @@ clients:
     hostname: runner
     network: Standard
     mac: e0:48:24:29:eb:77
+  192.168.1.25:
+    hostname: pocket
+    network: Standard
+    mac: 96:31:99:79:6b:1a
   192.168.1.100:
     hostname: kelly-switch-wired
     network: Standard

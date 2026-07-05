@@ -39,7 +39,7 @@ resource "unifi_network" "wans" {
   wan_type            = "dhcp"
   wan_type_v6         = "disabled"
   wan_dns             = ["8.8.8.8", "8.8.4.4"]
-  wan_dhcp_v6_pd_size = 48
+  wan_dhcp_v6_pd_size = 56
 }
 
 resource "unifi_network" "lans" {
