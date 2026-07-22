@@ -256,6 +256,10 @@ clients:
     hostname: budget
     network: Servers
     mac: 52:54:95:54:ee:af
+  10.0.1.117:
+    hostname: fleet
+    network: Servers
+    mac: 52:54:a3:65:f4:e0
   10.0.1.118:
     hostname: unpoller
     network: Servers
