@@ -48,8 +48,10 @@ resource "unifi_wan" "wans" {
 resource "unifi_network" "lans" {
   for_each = local.lans
 
-  name    = each.key
-  purpose = "corporate"
+  name               = each.key
+  purpose            = "corporate"
+  auto_scale         = false
+  setting_preference = "manual"
 
   subnet      = each.value.subnet
   vlan        = each.value.vlan_id == 0 ? null : each.value.vlan_id
@@ -85,7 +87,7 @@ resource "unifi_wlan" "wifi" {
 
   name       = each.key
   security   = "wpapsk"
-  passphrase = "skip"
+  passphrase = ""
 
   is_guest   = each.value.is_guest
   network_id = unifi_network.lans[each.value.network_name].id
@@ -96,6 +98,9 @@ resource "unifi_wlan" "wifi" {
   pmf_mode             = each.value.pmf_mode
   wpa3_support         = each.value.wpa3_support
   wpa3_transition      = each.value.wpa3_support
+  wpa3_fast_roaming    = each.value.wpa3_support
+  bss_transition       = true
+  group_rekey          = 3600
 
   ap_group_ids  = [data.unifi_ap_group.default.id]
   user_group_id = data.unifi_client_qos_rate.default.id
@@ -112,10 +117,13 @@ resource "unifi_client" "clients" {
 resource "unifi_port_profile" "network" {
   for_each = unifi_network.lans
 
-  name                  = each.value.name
-  poe_mode              = "auto"
-  forward               = each.value.name == "Infra" ? "customize" : "native"
-  native_networkconf_id = each.value.id
+  name                   = each.value.name
+  poe_mode               = "auto"
+  forward                = each.value.name == "Infra" ? "customize" : "native"
+  native_networkconf_id  = each.value.id
+  setting_preference     = "manual"
+  tagged_vlan_mgmt       = each.value.name == "Infra" ? "auto" : "block_all"
+  lldpmed_notify_enabled = false
 }
 
 resource "unifi_port_profile" "ports" {
@@ -124,6 +132,9 @@ resource "unifi_port_profile" "ports" {
   name                     = each.key
   poe_mode                 = "auto"
   forward                  = "customize"
+  setting_preference       = "manual"
+  tagged_vlan_mgmt         = "custom"
+  lldpmed_notify_enabled   = false
   native_networkconf_id    = unifi_network.lans[each.value.native].id
   excluded_networkconf_ids = [for x in unifi_network.lans : x.id if !contains(each.value.allowed, x.name) && x.name != each.value.native]
 }
