@@ -748,6 +748,10 @@ clients:
     hostname: birdbath
     network: IoT
     mac: bc:ad:ae:6a:91:fb
+  172.16.1.141:
+    hostname: toniebox2-alice
+    network: IoT
+    mac: d4:59:44:1e:83:a0
   172.16.20.10:
     hostname: ps5
     network: Gaming
