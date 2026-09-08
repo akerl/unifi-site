@@ -773,7 +773,7 @@ clients:
   192.168.1.10:
     hostname: lift
     network: Standard
-    mac: 56:e0:49:65:73:eb
+    mac: be:b4:ff:f8:a4:5c
   192.168.1.11:
     hostname: alice-ipad
     network: Standard
@@ -781,7 +781,7 @@ clients:
   192.168.1.12:
     hostname: wilson
     network: Standard
-    mac: f0:2f:4b:08:a6:77
+    mac: c6:5a:c6:42:e9:f7
   192.168.1.13:
     hostname: wilson-wired
     network: Standard
@@ -791,7 +791,7 @@ clients:
   192.168.1.14:
     hostname: laker-mac
     network: Standard
-    mac: 0e:33:b0:c1:7f:2b 
+    mac: 0e:33:b0:c1:7f:2b
   192.168.1.15:
     hostname: laker-mac-wired
     network: Standard
@@ -805,9 +805,9 @@ clients:
     upstream: switch-office
     port: 5
   192.168.1.17:
-    hostname: vivenna
+    hostname: hafte
     network: Standard
-    mac: de:de:78:10:4e:a3
+    mac: 06:4f:4c:bc:c5:30
   192.168.1.18:
     hostname: bean
     network: Standard
