@@ -2,7 +2,7 @@ terraform {
   required_providers {
     unifi = {
       source  = "ubiquiti-community/unifi"
-      version = "0.55.0"
+      version = "0.65.0"
     }
   }
 }
@@ -74,10 +74,6 @@ resource "unifi_network" "lans" {
     lease       = 86400
   }
 
-  ipv6_pd_start    = "::2"
-  ipv6_pd_stop     = "::7d1"
-  ipv6_ra_priority = "high"
-
   igmp_snooping = false
   multicast_dns = each.value.multicast_dns
 }
@@ -85,9 +81,9 @@ resource "unifi_network" "lans" {
 resource "unifi_wlan" "wifi" {
   for_each = local.wifi
 
-  name       = each.key
-  security   = "wpapsk"
-  passphrase = ""
+  name          = each.key
+  security      = "wpapsk"
+  passphrase_wo = ""
 
   is_guest   = each.value.is_guest
   network_id = unifi_network.lans[each.value.network_name].id
@@ -96,13 +92,18 @@ resource "unifi_wlan" "wifi" {
   uapsd                = each.value.uapsd
   fast_roaming_enabled = each.value.fast_roaming_enabled
   pmf_mode             = each.value.pmf_mode
-  wpa3_support         = each.value.wpa3_support
-  wpa3_transition      = each.value.wpa3_support
-  wpa3_fast_roaming    = each.value.wpa3_support
-  bss_transition       = true
-  group_rekey          = 3600
 
-  ap_group_ids  = [data.unifi_ap_group.default.id]
+  wpa3 = {
+    support      = each.value.wpa3_support
+    transition   = each.value.wpa3_support
+    fast_roaming = each.value.wpa3_support
+  }
+  bss_transition = true
+  group_rekey    = 3600
+
+  ap_group = {
+    ids = [data.unifi_ap_group.default.id]
+  }
   user_group_id = data.unifi_client_qos_rate.default.id
 }
 
@@ -117,13 +118,12 @@ resource "unifi_client" "clients" {
 resource "unifi_port_profile" "network" {
   for_each = unifi_network.lans
 
-  name                   = each.value.name
-  poe_mode               = "auto"
-  forward                = each.value.name == "Infra" ? "customize" : "native"
-  native_networkconf_id  = each.value.id
-  setting_preference     = "manual"
-  tagged_vlan_mgmt       = each.value.name == "Infra" ? "auto" : "block_all"
-  lldpmed_notify_enabled = false
+  name                  = each.value.name
+  poe_mode              = "auto"
+  forward               = each.value.name == "Infra" ? "customize" : "native"
+  native_networkconf_id = each.value.id
+  setting_preference    = "manual"
+  tagged_vlan_mgmt      = each.value.name == "Infra" ? "custom" : "block_all"
 }
 
 resource "unifi_port_profile" "ports" {
@@ -134,7 +134,6 @@ resource "unifi_port_profile" "ports" {
   forward                  = "customize"
   setting_preference       = "manual"
   tagged_vlan_mgmt         = "custom"
-  lldpmed_notify_enabled   = false
   native_networkconf_id    = unifi_network.lans[each.value.native].id
   excluded_networkconf_ids = [for x in unifi_network.lans : x.id if !contains(each.value.allowed, x.name) && x.name != each.value.native]
 }
